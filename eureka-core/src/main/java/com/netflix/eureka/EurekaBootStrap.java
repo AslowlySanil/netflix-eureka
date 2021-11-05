@@ -155,8 +155,8 @@ public class EurekaBootStrap implements ServletContextListener {
     protected void initEurekaServerContext() throws Exception {
 
         //part1 defaultEurekaConfig是EurekaServerConfig接口的实现类，面向接口的配置
-        //          * 实现类其定义的各个方法，默认的读取的eureka-server.properties配置文件中的配置项，然后通过硬编码的方式，
-        //          * 给各个配置项给定了默认值。
+        //* 实现类其定义的各个方法，默认的读取的eureka-server.properties配置文件中的配置项，然后通过硬编码的方式，
+        //* 给各个配置项给定了默认值。
         EurekaServerConfig eurekaServerConfig = new DefaultEurekaServerConfig();
 
         // For backward compatibility

@@ -498,7 +498,8 @@ public class PeerAwareInstanceRegistryImpl extends AbstractInstanceRegistry impl
 
     @Override
     public boolean isLeaseExpirationEnabled() {
-        //从配置文件中看获取是否开启了自我保护机制
+        //从配置文件中看获取是否开启了自我保护机制 如果没有开启自我保护机制，则定时到任务执行的时间，都会去摘除服务实例
+        // 如果开启了自我保护机制，则定时到任务执行时间，会去一定到逻辑去计算下是否去摘除服务实例
         if (!isSelfPreservationModeEnabled()) {
             // The self preservation mode is disabled, hence allowing the instances to expire.
             return true;

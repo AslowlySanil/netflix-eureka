@@ -648,7 +648,7 @@ public abstract class AbstractInstanceRegistry implements InstanceRegistry {
                     Lease<InstanceInfo> lease = leaseEntry.getValue();
                     //additionalLeaseMs 是计算的补偿时间，是为了避免两次Evictiontask任务调度的时间超过设置的60s，而
                     //设置的补偿时间机制，可以学习下该机制
-                    //expiredLeases 是将过期的服务实例给统计起来
+                    //expiredLeases 是将过期的服务实例给统计起来，按照逻辑计算出来的处于过期状态的服务实例的集合
                     if (lease.isExpired(additionalLeaseMs) && lease.getHolder() != null) {
                         expiredLeases.add(lease);
                     }

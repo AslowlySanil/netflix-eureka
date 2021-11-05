@@ -951,6 +951,7 @@ public class DiscoveryClient implements EurekaClient {
             //先获取所有的服务--applications
             Applications applications = getApplications();
 
+            //
             if (clientConfig.shouldDisableDelta()
                     || (!Strings.isNullOrEmpty(clientConfig.getRegistryRefreshSingleVipAddress()))
                     || forceFullRegistryFetch
@@ -1317,6 +1318,7 @@ public class DiscoveryClient implements EurekaClient {
             instanceInfoReplicator = new InstanceInfoReplicator(
                     this,
                     instanceInfo,
+                    //默认30s
                     clientConfig.getInstanceInfoReplicationIntervalSeconds(),
                     2); // burstSize
 
@@ -1517,6 +1519,7 @@ public class DiscoveryClient implements EurekaClient {
             //抓取注册表的逻辑 fetchRegistry
             boolean success = fetchRegistry(remoteRegionsModified);
             if (success) {
+                //注册表的
                 registrySize = localRegionApps.get().size();
                 lastSuccessfulRegistryFetchTimestamp = System.currentTimeMillis();
             }
